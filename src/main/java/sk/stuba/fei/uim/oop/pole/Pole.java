@@ -1,10 +1,18 @@
 package sk.stuba.fei.uim.oop.pole;
 import java.util.Random;
+import sk.stuba.fei.uim.oop.hrac.Hrac;
+import sk.stuba.fei.uim.oop.utility.ZKlavesnice;
 
 public class Pole {
     Random random = new Random();
+    int k;
     public Pole(){
-        String[] PolePreRandom = new String[25];// pole pre random na ribnicek
+
+        Hrac hrac = new Hrac();
+        k = ZKlavesnice.readInt(" ");
+        hrac.setHraci(k);
+        int h = ((hrac.getHraci()+1)*5);
+        String[] PolePreRandom = new String[h];// pole pre random na ribnicek
         for (int i=0;i < 5;i++){
             PolePreRandom[i] = "Voda";
         }
@@ -30,7 +38,7 @@ public class Pole {
                     PolePreRandom[i] = "Kacka5";
                 }
             }
-            if((PolePreRandom.length) >= 30)
+            if((PolePreRandom.length) > 30)
             for (int i = 30; i < 35; i++) {
                 PolePreRandom[i] = "Kacka6";
             }
