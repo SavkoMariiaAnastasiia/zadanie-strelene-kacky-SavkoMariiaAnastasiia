@@ -1,11 +1,10 @@
 package sk.stuba.fei.uim.oop.hrac;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
-
-import sk.stuba.fei.uim.oop.pole.Pole;
+//import java.util.ArrayList;
+//import java.util.List;
+//import java.util.Random;
+//import java.util.Scanner;
+//import sk.stuba.fei.uim.oop.pole.Pole;
 import sk.stuba.fei.uim.oop.utility.ZKlavesnice;
 
 public class Hrac {
@@ -29,5 +28,6 @@ public class Hrac {
             }
         }
     }
+
 }
 
