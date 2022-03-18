@@ -28,29 +28,29 @@ public class Pole {
             PolePreRandom[i] = "Voda";
         }
         for (i=5;i < 10;i++){
-            PolePreRandom[i] = "Kacka1";
+            PolePreRandom[i] = "Kacka hraca 1";
         }
         for (i=10;i < 15;i++){
-            PolePreRandom[i] = "Kacka2";
+            PolePreRandom[i] = "Kacka hraca 2";
         }
             if((PolePreRandom.length) > 15) {
                 for (i = 15; i < 20; i++) {
-                    PolePreRandom[i] = "Kacka3";
+                    PolePreRandom[i] = "Kacka hraca 3";
                 }
             }
             if ((PolePreRandom.length) > 20) {
                     for (i = 20; i < 25; i++) {
-                        PolePreRandom[i] = "Kacka4";
+                        PolePreRandom[i] = "Kacka hraca 4";
                     }
             }
             if((PolePreRandom.length) > 25) {
                 for (i = 25; i < 30; i++) {
-                    PolePreRandom[i] = "Kacka5";
+                    PolePreRandom[i] = "Kacka hraca 5";
                 }
             }
             if((PolePreRandom.length) > 30)
             for (i = 30; i < 35; i++) {
-                PolePreRandom[i] = "Kacka6";
+                PolePreRandom[i] = "Kacka hraca 6";
             }
         String[] RybnikPreRandom = new String[6];//rybnik 6 poli
         for (i=0;i<6;i++){

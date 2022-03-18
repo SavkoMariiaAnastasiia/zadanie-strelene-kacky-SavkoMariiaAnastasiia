@@ -22,7 +22,7 @@ public class Hrac {
             this.hraci = hraci;
         }else {
             while ((hraci>6) || (hraci<2)) {
-                System.out.println("Pocet htacov je vecse ak 6 alebo mense ak 2\n");
+                System.out.println("Pocet htacov je vecse ak 6 alebo mense ak 2");
                 hraci = ZKlavesnice.readInt(" ");
                 this.hraci = hraci;
             }
