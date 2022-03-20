@@ -1,16 +1,14 @@
 package sk.stuba.fei.uim.oop.karty.akcna;
 
-import sk.stuba.fei.uim.oop.strelaneKackyHra.StrelaneKackyHra;
 import sk.stuba.fei.uim.oop.utility.ZKlavesnice;
 
-public class ZoomAkcna {
+public class Zamierit {
 
     public int vyberzoom;
-    private int i;
     public int k;
 
 
-    public ZoomAkcna(){
+    public Zamierit(){
         System.out.println("Napiste na ake pole ide zoom od 1-6:");
         this.vyberzoom = ZKlavesnice.readInt(" ");
             if (vyberzoom < 1 || vyberzoom > 6) {
