@@ -7,7 +7,7 @@ public class Strelat {
     public int k1;
 
     public Strelat(){
-        System.out.println("Napiste na ake strelat od 1-6:");
+        System.out.println("Napiste na ake pole strelat kde je zamierane od 1-6:");
         this.vyberstrelat = ZKlavesnice.readInt(" ");
         if (vyberstrelat < 1 || vyberstrelat > 6) {
             while (vyberstrelat > 6 || vyberstrelat < 1) {

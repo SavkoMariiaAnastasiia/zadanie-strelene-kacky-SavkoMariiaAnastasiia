@@ -51,7 +51,7 @@ public class Proverka {
             this.vyber11 = 5;
             TurboKacka turboKacka = new TurboKacka();
         }
-        if (vyber1=="ZoomAkcna"){
+        if (vyber1=="Zamierit"){
             this.vyber11 = 6;
         }
         if (vyber1=="Strelat"){
