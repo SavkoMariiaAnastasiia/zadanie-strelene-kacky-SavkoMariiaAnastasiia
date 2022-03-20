@@ -112,6 +112,7 @@ public class StrelaneKackyHra {
                 }
             }
         }
+        Karty[0][0] = RandomPreKarty[1];
         for(i = 0;i<5;i++){
             this.kackahraca[0] ++;
             this.kackahraca[1] ++;
@@ -134,6 +135,19 @@ public class StrelaneKackyHra {
             vyber1 = Karty[j-1][vyber-1];
             proverka.setVyber1(vyber1);
             akcna = proverka.getVyber1();
+            if(akcna == 2) {//---------------------------KacaciTanec
+                for (i=0;i<6;i++){
+                    for (int r = 0; PolePreRandom[r] != null; r++) {
+                        pocetkart1 = r;
+                    }
+                    randomcisloprehracov = random.nextInt(pocetkart1);
+                    PolePreRandom[pocetkart1+1] = RybnikPreRandom[i];
+                    RybnikPreRandom[i] = PolePreRandom[randomcisloprehracov];
+                    for (int m = randomcisloprehracov; m < pocetkart1 + 1; m++) {
+                        PolePreRandom[m] = PolePreRandom[m+1];
+                    }
+                }
+            }
             if(akcna == 3) {//---------------------------Rosambo
                 for (i=0;i<6;i++){
                     for (int r = 0; RybnikPreRandom[r] != null; r++) {

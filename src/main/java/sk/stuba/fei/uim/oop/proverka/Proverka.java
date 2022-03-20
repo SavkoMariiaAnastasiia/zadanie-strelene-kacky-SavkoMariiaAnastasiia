@@ -33,30 +33,24 @@ public class Proverka {
     public void setVyber1(String vyber1) {
         if (vyber1=="TurboKacka"){
             this.vyber11 = 1;
-            TurboKacka turboKacka = new TurboKacka();
         }
         if (vyber1=="KacaciTanec"){
             this.vyber11 = 2;
-            TurboKacka turboKacka = new TurboKacka();
         }
         if (vyber1=="Rosambo"){
             this.vyber11 = 3;
-            TurboKacka turboKacka = new TurboKacka();
         }
         if (vyber1=="DivokyBill"){
             this.vyber11 = 4;
-            TurboKacka turboKacka = new TurboKacka();
         }
         if (vyber1=="KacaciPohod"){
             this.vyber11 = 5;
-            TurboKacka turboKacka = new TurboKacka();
         }
         if (vyber1=="Zamierit"){
             this.vyber11 = 6;
         }
         if (vyber1=="Strelat"){
             this.vyber11 = 7;
-            TurboKacka turboKacka = new TurboKacka();
         }
 
     }
