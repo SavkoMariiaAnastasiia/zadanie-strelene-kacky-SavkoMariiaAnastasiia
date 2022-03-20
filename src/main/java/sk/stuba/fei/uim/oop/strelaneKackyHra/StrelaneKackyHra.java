@@ -113,7 +113,6 @@ public class StrelaneKackyHra {
                 }
             }
         }
-        Karty[0][0] = RandomPreKarty[0];
         for(i = 0;i<5;i++){
             kackahraca[0] ++;
             kackahraca[1] ++;
@@ -122,36 +121,11 @@ public class StrelaneKackyHra {
             kackahraca[4] ++;
             kackahraca[5] ++;
         }
-        for (i=0;i>0;i++) {
+        for (i=0;i>=0;i++) {
             for (int j = 1; j <= pocethracov; j++) {//----------------------------------------------
                 if (kackahraca[j] == 0) {
                     System.out.println("Hrac" + j + "vybol!");
                 } else {
-                    int poc = 0;
-                    for (i=0;i<RandomPreKarty.length;i++){
-                        if (RandomPreKarty[i]!=null){
-                            poc++;
-                        }
-                    }
-                    if (poc == 0){
-                        RandomPreKarty[0] = "TurboKacka";
-                        RandomPreKarty[1] = "KacaciTanec";
-                        for (i = 2; i < 4; i++) {
-                            RandomPreKarty[i] = "Rosambo";
-                        }
-                        for (i = 4; i < 6; i++) {
-                            RandomPreKarty[i] = "DivokyBill";
-                        }
-                        for (i = 6; i < 12; i++) {
-                            RandomPreKarty[i] = "KacaciPohod";
-                        }
-                        for (i = 12; i < 22; i++) {
-                            RandomPreKarty[i] = "Zamierit";
-                        }
-                        for (i = 22; i < 34; i++) {
-                            RandomPreKarty[i] = "Strelat";
-                        }
-                    }
                     System.out.println("Chodi hrac" + j + ":");
                     System.out.println("Hrac" + j + " ma " + kackahraca[j - 1] + " kacek!");
                     for (i = 0; i < 3; i++) {
@@ -162,6 +136,16 @@ public class StrelaneKackyHra {
                     proverka.setVyber(vyber);
                     vyber = proverka.getVyber();
                     vyber1 = Karty[j - 1][vyber - 1];
+                    if (vyber!=0) {
+                        for (int r = 0; RandomPreKarty[r] != null; r++) {
+                            pocetkart = r;
+                        }
+                        randomcislo = random.nextInt(pocetkart);
+                        Karty[j-1][vyber - 1] = RandomPreKarty[randomcislo];// ------karty pre hraca 1 randomcislo
+                        for (int m = randomcislo; m < pocetkart + 1; m++) {
+                            RandomPreKarty[m] = RandomPreKarty[m + 1];
+                        }
+                    }
                     proverka.setVyber1(vyber1);
                     akcna = proverka.getVyber1();
                     if (akcna == 1) {//---------------------------TurboKacka
@@ -182,7 +166,7 @@ public class StrelaneKackyHra {
                     }
                     if (akcna == 2) {//---------------------------KacaciTanec
                         for (i = 0; i < 6; i++) {
-                            for (int r = 0; PolePreRandom[r] != null; r++) {
+                            for (int r = 0; PolePreRandom[r+1] != null; r++) {
                                 pocetkart1 = r;
                             }
                             randomcisloprehracov = random.nextInt(pocetkart1);
@@ -243,6 +227,9 @@ public class StrelaneKackyHra {
                         Zoom[vyberstrelat - 1] = "Nezamierane";
                     }
                     if (akcna == 5) {//---------------------------------kacaci pochod
+                        for (int r = 0; PolePreRandom[r] != null; r++) {
+                            pocetkart = r;
+                        }
                         PolePreRandom[pocetkart + 1] = RybnikPreRandom[0];
                         for (int m = 0; m < 6; m++) {
                             RybnikPreRandom[m] = RybnikPreRandom[m + 1];
@@ -322,6 +309,31 @@ public class StrelaneKackyHra {
                     for (i = 0; i < 6; i++) {
                         System.out.println((i + 1) + ". " + Zoom[i] + "-" + RybnikPreRandom[i]);//----------------------
                     }
+                }
+            }
+            int poc = 0;
+            for (i=0;i<RandomPreKarty.length;i++){
+                if (RandomPreKarty[i]!=null){
+                    poc++;
+                }
+            }
+            if (poc == 0){
+                RandomPreKarty[0] = "TurboKacka";
+                RandomPreKarty[1] = "KacaciTanec";
+                for (i = 2; i < 4; i++) {
+                    RandomPreKarty[i] = "Rosambo";
+                }
+                for (i = 4; i < 6; i++) {
+                    RandomPreKarty[i] = "DivokyBill";
+                }
+                for (i = 6; i < 12; i++) {
+                    RandomPreKarty[i] = "KacaciPohod";
+                }
+                for (i = 12; i < 22; i++) {
+                    RandomPreKarty[i] = "Zamierit";
+                }
+                for (i = 22; i < 34; i++) {
+                    RandomPreKarty[i] = "Strelat";
                 }
             }
             int vyh = 0;
