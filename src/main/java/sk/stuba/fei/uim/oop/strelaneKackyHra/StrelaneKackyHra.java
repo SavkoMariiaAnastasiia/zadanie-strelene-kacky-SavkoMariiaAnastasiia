@@ -106,7 +106,7 @@ public class StrelaneKackyHra {
                     pocetkart = r;
                 }
                 randomcislo = random.nextInt(pocetkart);
-                Karty[j][i] = RandomPreKarty[randomcislo];// ------karty pre hraca 1
+                Karty[j][i] = RandomPreKarty[randomcislo];// ------karty pre hraca 1 randomcislo
                 for (int m = randomcislo; m < pocetkart + 1; m++) {
                     RandomPreKarty[m] = RandomPreKarty[m + 1];
                 }
@@ -134,6 +134,17 @@ public class StrelaneKackyHra {
             vyber1 = Karty[j-1][vyber-1];
             proverka.setVyber1(vyber1);
             akcna = proverka.getVyber1();
+            if(akcna == 3) {//---------------------------Rosambo
+                for (i=0;i<6;i++){
+                    for (int r = 0; RybnikPreRandom[r] != null; r++) {
+                        pocetkart1 = r;
+                    }
+                    randomcisloprehracov = random.nextInt(pocetkart1);
+                    String pam = RybnikPreRandom[i];
+                    RybnikPreRandom[i] = RybnikPreRandom[randomcisloprehracov];
+                    RybnikPreRandom[randomcisloprehracov] = pam;
+                }
+            }
             if(akcna == 4) {//----------------------------divokybill
                 DivokyBill divokyBill = new DivokyBill();
                 vyberstrelat = divokyBill.getVyberstrelat();
