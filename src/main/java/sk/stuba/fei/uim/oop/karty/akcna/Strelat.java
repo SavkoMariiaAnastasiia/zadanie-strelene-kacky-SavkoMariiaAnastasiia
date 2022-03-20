@@ -21,6 +21,16 @@ public class Strelat {
     }
 
     public void setK1(int k1) {
+        while (vyberstrelat == (k1+1)) {
+            System.out.println("Toto miesto neni zamierane napiste druhe cislo:");
+            this.vyberstrelat = ZKlavesnice.readInt(" ");
+            if (vyberstrelat < 1 || vyberstrelat > 6) {
+                while (vyberstrelat > 6 || vyberstrelat < 1) {
+                    System.out.println("To nie je cislo od 1-6:");
+                    this.vyberstrelat = ZKlavesnice.readInt(" ");
+                }
+            }
+        }
         this.k1 = k1;
     }
 }

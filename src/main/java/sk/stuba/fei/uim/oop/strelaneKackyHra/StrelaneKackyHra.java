@@ -1,6 +1,7 @@
 package sk.stuba.fei.uim.oop.strelaneKackyHra;
 
 import sk.stuba.fei.uim.oop.hrac.Hrac;
+import sk.stuba.fei.uim.oop.karty.akcna.DivokyBill;
 import sk.stuba.fei.uim.oop.karty.akcna.Strelat;
 import sk.stuba.fei.uim.oop.karty.akcna.Zamierit;
 import sk.stuba.fei.uim.oop.proverka.Proverka;
@@ -134,7 +135,42 @@ public class StrelaneKackyHra {
             proverka.setVyber1(vyber1);
             akcna = proverka.getVyber1();
             if(akcna == 4) {//----------------------------divokybill
-
+                DivokyBill divokyBill = new DivokyBill();
+                vyberstrelat = divokyBill.getVyberstrelat();
+                if (RybnikPreRandom[vyberstrelat - 1] == "Voda") {
+                    RandomPreKarty[pocetkart + 1] = "Voda";
+                    this.pocetkart = pocetkart + 1;
+                }
+                if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 1") {
+                    kackahraca[0] = kackahraca[0] - 1;
+                }
+                if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 2") {
+                    kackahraca[1] = kackahraca[1] - 1;
+                }
+                if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 3") {
+                    kackahraca[2] = kackahraca[2] - 1;
+                }
+                if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 4") {
+                    kackahraca[3] = kackahraca[3] - 1;
+                }
+                if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 5") {
+                    kackahraca[4] = kackahraca[4] - 1;
+                }
+                if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 6") {
+                    kackahraca[5] = kackahraca[5] - 1;
+                }
+                randomcisloprehracov = random.nextInt(pocetkart - 1);
+                for (int m = vyberstrelat - 1; m < 6; m++) {
+                    RybnikPreRandom[m] = RybnikPreRandom[m + 1];
+                }
+                RybnikPreRandom[5] = PolePreRandom[randomcisloprehracov];
+                for (int m = randomcisloprehracov; m < pocetkart + 1; m++) {
+                    RandomPreKarty[m] = RandomPreKarty[m + 1];
+                }
+                for (int r = 0; RandomPreKarty[r] != null; r++) {
+                    pocetkart = r;
+                }
+                Zoom[vyberstrelat - 1] = "Nezamierane";
             }
             if(akcna == 5) {//---------------------------------kacaci pochod
                 PolePreRandom[pocetkart+1] = RybnikPreRandom[0];
@@ -158,44 +194,59 @@ public class StrelaneKackyHra {
             if(akcna == 7) {//-----------------------------------strelat
                 Strelat strelat = new Strelat();
                 vyberstrelat = strelat.getVyberstrelat();
+                int nozom = 0;
                 for (i = 0;i<6;i++) {
-                    if (Zoom[i] == Zoom[vyberstrelat - 1] && Zoom[i] == "Zamierene") {
-                        if (RybnikPreRandom[vyberstrelat-1]=="Voda"){
-                            RandomPreKarty[pocetkart+1] = "Voda";
-                            this.pocetkart = pocetkart+1;
-                        }
-                        if (RybnikPreRandom[vyberstrelat-1]=="Kacka hraca 1"){
-                            kackahraca[0] = kackahraca[0]-1;
-                        }
-                        if (RybnikPreRandom[vyberstrelat-1]=="Kacka hraca 2"){
-                            kackahraca[1] = kackahraca[1]-1;
-                        }
-                        if (RybnikPreRandom[vyberstrelat-1]=="Kacka hraca 3"){
-                            kackahraca[2] = kackahraca[2]-1;
-                        }
-                        if (RybnikPreRandom[vyberstrelat-1]=="Kacka hraca 4"){
-                            kackahraca[3] = kackahraca[3]-1;
-                        }
-                        if (RybnikPreRandom[vyberstrelat-1]=="Kacka hraca 5"){
-                            kackahraca[4] = kackahraca[4]-1;
-                        }
-                        if (RybnikPreRandom[vyberstrelat-1]=="Kacka hraca 6"){
-                            kackahraca[5] = kackahraca[5]-1;
-                        }
-                        randomcisloprehracov = random.nextInt(pocetkart);
-                        for (int m = vyberstrelat - 1; m < RybnikPreRandom.length -1; m++) {
-                            RybnikPreRandom[m] = RybnikPreRandom[m + 1];
-                        }
-                        RybnikPreRandom[5] = PolePreRandom[randomcisloprehracov];
-                        for (int m = randomcisloprehracov; m < pocetkart + 1; m++) {
-                            RandomPreKarty[m] = RandomPreKarty[m + 1];
-                        }
-                        for (int r = 0; RandomPreKarty[r] != null; r++) {
-                            pocetkart = r;
-                        }
-                        Zoom[vyberstrelat - 1] = "Nezamerane";
-                        strelat.setK1(i);
+                    if (Zoom[i]=="Zamierene"){
+                        nozom = 1;
                     }
+                }
+                if (nozom == 1) {
+                    for (i = 0; i < 6; i++) {
+                        if (Zoom[vyberstrelat - 1] == "Nezamierane") {
+                            strelat.setK1(vyberstrelat - 1);
+                        }
+                        vyberstrelat = strelat.getVyberstrelat();
+                    }
+                    for (i = 0; i < 6; i++) {
+                        if (Zoom[i] == Zoom[vyberstrelat - 1] && Zoom[i] == "Zamierene") {
+                            if (RybnikPreRandom[vyberstrelat - 1] == "Voda") {
+                                RandomPreKarty[pocetkart + 1] = "Voda";
+                                this.pocetkart = pocetkart + 1;
+                            }
+                            if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 1") {
+                                kackahraca[0] = kackahraca[0] - 1;
+                            }
+                            if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 2") {
+                                kackahraca[1] = kackahraca[1] - 1;
+                            }
+                            if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 3") {
+                                kackahraca[2] = kackahraca[2] - 1;
+                            }
+                            if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 4") {
+                                kackahraca[3] = kackahraca[3] - 1;
+                            }
+                            if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 5") {
+                                kackahraca[4] = kackahraca[4] - 1;
+                            }
+                            if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 6") {
+                                kackahraca[5] = kackahraca[5] - 1;
+                            }
+                            randomcisloprehracov = random.nextInt(pocetkart - 1);
+                            for (int m = vyberstrelat - 1; m < RybnikPreRandom.length - 1; m++) {
+                                RybnikPreRandom[m] = RybnikPreRandom[m + 1];
+                            }
+                            RybnikPreRandom[5] = PolePreRandom[randomcisloprehracov];
+                            for (int m = randomcisloprehracov; m < pocetkart + 1; m++) {
+                                RandomPreKarty[m] = RandomPreKarty[m + 1];
+                            }
+                            for (int r = 0; RandomPreKarty[r] != null; r++) {
+                                pocetkart = r;
+                            }
+                            Zoom[vyberstrelat - 1] = "Nezamierane";
+                        }
+                    }
+                }else {
+                    System.out.println("Ziadne pole neni zamierane mimo!");
                 }
             }
             for (i=0;i<6;i++){
@@ -204,4 +255,5 @@ public class StrelaneKackyHra {
         }
     }
 }
+
 
