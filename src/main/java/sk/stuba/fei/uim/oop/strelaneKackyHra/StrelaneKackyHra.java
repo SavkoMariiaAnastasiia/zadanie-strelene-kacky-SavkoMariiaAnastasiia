@@ -4,6 +4,7 @@ import sk.stuba.fei.uim.oop.hrac.Hrac;
 import sk.stuba.fei.uim.oop.karty.akcna.DivokyBill;
 import sk.stuba.fei.uim.oop.karty.akcna.Strelat;
 import sk.stuba.fei.uim.oop.karty.akcna.Zamierit;
+import sk.stuba.fei.uim.oop.karty.akcna.pohyb.TurboKacka;
 import sk.stuba.fei.uim.oop.proverka.Proverka;
 import sk.stuba.fei.uim.oop.utility.ZKlavesnice;
 import java.util.Random;
@@ -112,7 +113,7 @@ public class StrelaneKackyHra {
                 }
             }
         }
-        Karty[0][0] = RandomPreKarty[1];
+        Karty[0][0] = RandomPreKarty[0];
         for(i = 0;i<5;i++){
             this.kackahraca[0] ++;
             this.kackahraca[1] ++;
@@ -135,6 +136,22 @@ public class StrelaneKackyHra {
             vyber1 = Karty[j-1][vyber-1];
             proverka.setVyber1(vyber1);
             akcna = proverka.getVyber1();
+            if(akcna == 1) {//---------------------------TurboKacka
+                TurboKacka turboKacka = new TurboKacka();
+                int vyberturbo = turboKacka.getVyberturbo();
+                for (i=0;i<6;i++){
+                    if(RybnikPreRandom[i] == RybnikPreRandom[vyberturbo - 1] && RybnikPreRandom[i] == "Voda" ){
+                        turboKacka.setK2(i);
+                    }
+                }
+                vyberturbo = turboKacka.getVyberturbo();
+                String pam1 = RybnikPreRandom[0];
+                RybnikPreRandom[0] = RybnikPreRandom[vyberturbo-1];
+                for(int m = vyberturbo-1;m>1;m--){
+                    RybnikPreRandom[m] = RybnikPreRandom[m-1];
+                }
+                RybnikPreRandom[1] = pam1;
+            }
             if(akcna == 2) {//---------------------------KacaciTanec
                 for (i=0;i<6;i++){
                     for (int r = 0; PolePreRandom[r] != null; r++) {
