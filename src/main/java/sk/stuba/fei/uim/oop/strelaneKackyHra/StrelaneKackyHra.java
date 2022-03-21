@@ -11,14 +11,13 @@ import java.util.Random;
 
 public class StrelaneKackyHra {
     Random random = new Random();
-    public int pocethracov;
+    private int pocethracov;
     public int h;
     public int randomcisloprehracov;
     public int akcna;
     public int vyberzoom = -1;
     public int vyberstrelat;
     private int i;
-
     private int pocetkart;//pre random
     private int pocetkart1;//pre pole
     public int randomcislo;
@@ -123,8 +122,8 @@ public class StrelaneKackyHra {
         }
         for (i=0;i>=0;i++) {
             for (int j = 1; j <= pocethracov; j++) {//----------------------------------------------
-                if (kackahraca[j] == 0) {
-                    System.out.println("Hrac" + j + "vybol!");
+                if (kackahraca[j-1] == 0) {
+                    System.out.println("Hrac " + j + " vybol!---------------------------");
                 } else {
                     System.out.println("Chodi hrac" + j + ":");
                     System.out.println("Hrac" + j + " ma " + kackahraca[j - 1] + " kacek!");
@@ -142,9 +141,6 @@ public class StrelaneKackyHra {
                         }
                         randomcislo = random.nextInt(pocetkart);
                         Karty[j-1][vyber - 1] = RandomPreKarty[randomcislo];// ------karty pre hraca 1 randomcislo
-                        for (int m = randomcislo; m < pocetkart + 1; m++) {
-                            RandomPreKarty[m] = RandomPreKarty[m + 1];
-                        }
                     }
                     proverka.setVyber1(vyber1);
                     akcna = proverka.getVyber1();
@@ -213,16 +209,16 @@ public class StrelaneKackyHra {
                         if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 6") {
                             this.kackahraca[5] = kackahraca[5] - 1;
                         }
-                        randomcisloprehracov = random.nextInt(pocetkart - 1);
+                        randomcisloprehracov = random.nextInt(pocetkart1 - 1);
                         for (int m = vyberstrelat - 1; m < 6; m++) {
                             RybnikPreRandom[m] = RybnikPreRandom[m + 1];
                         }
                         RybnikPreRandom[5] = PolePreRandom[randomcisloprehracov];
-                        for (int m = randomcisloprehracov; m < pocetkart + 1; m++) {
-                            RandomPreKarty[m] = RandomPreKarty[m + 1];
+                        for (int m = randomcisloprehracov; m < pocetkart1 + 1; m++) {
+                            PolePreRandom[m] = PolePreRandom[m + 1];
                         }
-                        for (int r = 0; RandomPreKarty[r] != null; r++) {
-                            pocetkart = r;
+                        for (int r = 0; PolePreRandom[r] != null; r++) {
+                            pocetkart1 = r;
                         }
                         Zoom[vyberstrelat - 1] = "Nezamierane";
                     }
@@ -288,16 +284,16 @@ public class StrelaneKackyHra {
                                     if (RybnikPreRandom[vyberstrelat - 1] == "Kacka hraca 6") {
                                         this.kackahraca[5] = kackahraca[5] - 1;
                                     }
-                                    randomcisloprehracov = random.nextInt(pocetkart - 1);
+                                    randomcisloprehracov = random.nextInt(pocetkart1 - 1);
                                     for (int m = vyberstrelat - 1; m < RybnikPreRandom.length - 1; m++) {
                                         RybnikPreRandom[m] = RybnikPreRandom[m + 1];
                                     }
-                                    RybnikPreRandom[5] = PolePreRandom[randomcisloprehracov - 1];
-                                    for (int m = randomcisloprehracov; m < pocetkart + 1; m++) {
-                                        RandomPreKarty[m] = RandomPreKarty[m + 1];
+                                    RybnikPreRandom[5] = PolePreRandom[randomcisloprehracov];
+                                    for (int m = randomcisloprehracov; m < pocetkart1 + 1; m++) {
+                                        PolePreRandom[m] = PolePreRandom[m + 1];
                                     }
-                                    for (int r = 0; RandomPreKarty[r] != null; r++) {
-                                        pocetkart = r;
+                                    for (int r = 0; PolePreRandom[r] != null; r++) {
+                                        pocetkart1 = r;
                                     }
                                     Zoom[vyberstrelat - 1] = "Nezamierane";
                                 }
@@ -311,39 +307,14 @@ public class StrelaneKackyHra {
                     }
                 }
             }
-            int poc = 0;
-            for (i=0;i<RandomPreKarty.length;i++){
-                if (RandomPreKarty[i]!=null){
-                    poc++;
-                }
-            }
-            if (poc == 0){
-                RandomPreKarty[0] = "TurboKacka";
-                RandomPreKarty[1] = "KacaciTanec";
-                for (i = 2; i < 4; i++) {
-                    RandomPreKarty[i] = "Rosambo";
-                }
-                for (i = 4; i < 6; i++) {
-                    RandomPreKarty[i] = "DivokyBill";
-                }
-                for (i = 6; i < 12; i++) {
-                    RandomPreKarty[i] = "KacaciPohod";
-                }
-                for (i = 12; i < 22; i++) {
-                    RandomPreKarty[i] = "Zamierit";
-                }
-                for (i = 22; i < 34; i++) {
-                    RandomPreKarty[i] = "Strelat";
-                }
-            }
             int vyh = 0;
-            for (i=0;i<6;i++){
-                if (kackahraca[i]!=0){
+            for (i=0;i<pocethracov;i++){
+                if (kackahraca[i]==0){
                     vyh++;
                 }
             }
-            if (vyh == 1){
-                for (i=0;i<6;i++){
+            if (vyh == pocethracov-1){
+                for (i=0;i<pocethracov-1;i++){
                     if (kackahraca[i]!=0){
                         i = i+1;
                         System.out.println("Hrac "+ i +" vyhral!!");
