@@ -101,16 +101,11 @@ public class StrelaneKackyHra {
             RandomPreKarty[i] = "Strelat";
         }
         for (int j = 0; j< pocethracov; j++) {
-            for (i = 0; i < 3; i++) {
                 for (int r = 0; RandomPreKarty[r] != null; r++) {
                     pocetkart = r;
                 }
                 randomcislo = random.nextInt(pocetkart);
                 Karty[j][i] = RandomPreKarty[randomcislo];// ------karty pre hraca 1 randomcislo
-                for (int m = randomcislo; m < pocetkart + 1; m++) {
-                    RandomPreKarty[m] = RandomPreKarty[m + 1];
-                }
-            }
         }
         for(i = 0;i<5;i++){
             kackahraca[0] ++;
@@ -314,7 +309,7 @@ public class StrelaneKackyHra {
                 }
             }
             if (vyh == pocethracov-1){
-                for (i=0;i<pocethracov-1;i++){
+                for (i=0;i<pocethracov;i++){
                     if (kackahraca[i]!=0){
                         i = i+1;
                         System.out.println("Hrac "+ i +" vyhral!!");
