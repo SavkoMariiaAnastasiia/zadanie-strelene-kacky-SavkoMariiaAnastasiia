@@ -101,11 +101,13 @@ public class StrelaneKackyHra {
             RandomPreKarty[i] = "Strelat";
         }
         for (int j = 0; j< pocethracov; j++) {
+            for (i = 0; i < 3; i++) {
                 for (int r = 0; RandomPreKarty[r] != null; r++) {
                     pocetkart = r;
                 }
                 randomcislo = random.nextInt(pocetkart);
                 Karty[j][i] = RandomPreKarty[randomcislo];// ------karty pre hraca 1 randomcislo
+            }
         }
         for(i = 0;i<5;i++){
             kackahraca[0] ++;
@@ -131,9 +133,6 @@ public class StrelaneKackyHra {
                     vyber = proverka.getVyber();
                     vyber1 = Karty[j - 1][vyber - 1];
                     if (vyber!=0) {
-                        for (int r = 0; RandomPreKarty[r] != null; r++) {
-                            pocetkart = r;
-                        }
                         randomcislo = random.nextInt(pocetkart);
                         Karty[j-1][vyber - 1] = RandomPreKarty[randomcislo];// ------karty pre hraca 1 randomcislo
                     }
@@ -219,7 +218,7 @@ public class StrelaneKackyHra {
                     }
                     if (akcna == 5) {//---------------------------------kacaci pochod
                         for (int r = 0; PolePreRandom[r] != null; r++) {
-                            pocetkart = r;
+                            pocetkart = r-1;
                         }
                         PolePreRandom[pocetkart + 1] = RybnikPreRandom[0];
                         for (int m = 0; m < 6; m++) {
