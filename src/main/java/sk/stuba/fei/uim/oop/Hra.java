@@ -77,7 +77,7 @@ public class Hra {
             this.zamierane.add("Nezamierane");
         }
         for (int i=0;i < 6;i++){
-            System.out.println(this.zamierane.get(i)+" "+ this.stol.get(i));
+            System.out.println(i+1+". "+this.zamierane.get(i)+" "+ this.stol.get(i));
         }
     }
 

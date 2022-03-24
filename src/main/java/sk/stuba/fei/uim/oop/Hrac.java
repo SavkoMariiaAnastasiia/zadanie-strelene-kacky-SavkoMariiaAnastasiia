@@ -41,9 +41,11 @@ public class Hrac {
 
     public void printKarty() {
         System.out.println("--------------------\n"+"Hrac '" + this.meno +"' ma "+zivoty+" kacicek a tieto karty:");
+        int i = 0;
         for (AkcneKarty karta:this.karty
              ) {
-            System.out.println(karta);
+            i++;
+            System.out.println(i+". "+karta);
 
         }
     }
