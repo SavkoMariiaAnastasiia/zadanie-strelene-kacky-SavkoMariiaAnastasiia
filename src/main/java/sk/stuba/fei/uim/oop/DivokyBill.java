@@ -1,8 +1,12 @@
 package sk.stuba.fei.uim.oop;
 
+import sk.stuba.fei.uim.oop.AkcneKarty;
+import sk.stuba.fei.uim.oop.Hra;
+import sk.stuba.fei.uim.oop.HracieKarty;
+
 import static sk.stuba.fei.uim.oop.utility.KeyboardInput.readInt;
 
-public class Strel extends AkcneKarty {
+public class DivokyBill extends AkcneKarty {
     @Override
     public void akcia(Hra hra) {
         int vyberkartu = readInt("Ktoru kartu");
@@ -19,6 +23,6 @@ public class Strel extends AkcneKarty {
 
     @Override
     public String toString() {
-        return "Strel";
+        return "DivokyBill";
     }
 }

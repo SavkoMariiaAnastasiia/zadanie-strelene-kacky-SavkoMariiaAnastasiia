@@ -13,7 +13,7 @@ public class Rosambo extends AkcneKarty  {
 
     @Override
     public String toString() {
-        return "Rosambo{}";
+        return "Rosambo";
     }
 }
 

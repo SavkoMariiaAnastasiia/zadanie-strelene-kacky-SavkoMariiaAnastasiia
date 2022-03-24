@@ -27,6 +27,9 @@ public class Hrac {
     public void strel() {
         this.zivoty--;
     }
+    public void divokybill() {
+        this.zivoty--;
+    }
 
     public void dajKartu(AkcneKarty karta) {
         this.karty.add(karta);

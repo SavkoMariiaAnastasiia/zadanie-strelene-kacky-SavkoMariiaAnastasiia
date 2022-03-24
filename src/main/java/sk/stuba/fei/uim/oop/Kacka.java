@@ -18,4 +18,9 @@ public class Kacka extends HracieKarty {
     public void strel() {
         this.hrac.strel();
     }
+
+    @Override
+    public void divokybill() {
+        this.hrac.divokybill();
+    }
 }

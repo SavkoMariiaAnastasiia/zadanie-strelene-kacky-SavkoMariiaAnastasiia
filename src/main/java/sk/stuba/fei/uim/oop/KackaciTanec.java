@@ -15,7 +15,7 @@ public class KackaciTanec extends AkcneKarty {
 
     @Override
     public String toString() {
-        return "KackaciTanec{}";
+        return "KackaciTanec";
     }
 }
 

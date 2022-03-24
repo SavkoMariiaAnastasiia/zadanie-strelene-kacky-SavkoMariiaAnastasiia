@@ -13,4 +13,7 @@ public class Voda extends HracieKarty {
     public void strel() {
         System.out.println("strelil si vodu");
     }
+    public void divokybill() {
+        System.out.println("strelil si vodu");
+    }
 }

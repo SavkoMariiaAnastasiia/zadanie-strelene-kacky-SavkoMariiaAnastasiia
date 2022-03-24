@@ -10,4 +10,8 @@ public class KacaciPochod extends AkcneKarty {
         hra.stol.add(novakarta);
 
     }
+    @Override
+    public String toString() {
+        return "KacaciPochod";
+    }
 }

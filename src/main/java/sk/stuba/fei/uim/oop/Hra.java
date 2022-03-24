@@ -34,6 +34,9 @@ public class Hra {
 
         //-------------------------------- //spravime balik akcnych karet
         for (int i = 0; i < 2; i++) {
+            this.akcnekarty.add(new DivokyBill());
+        }
+        for (int i = 0; i < 2; i++) {
             this.akcnekarty.add(new Rosambo());
         }
         for (int i = 0; i < 6; i++) {
