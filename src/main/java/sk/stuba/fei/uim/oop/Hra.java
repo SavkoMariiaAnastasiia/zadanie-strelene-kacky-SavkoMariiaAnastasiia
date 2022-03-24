@@ -90,6 +90,16 @@ public class Hra {
             }
         }
         while (kolkohracov>1){ //ak viac nez 1 hrac zije
+            int kolkohracov1 = 0; //spocitame kolko hracov zije
+            for (Hrac i:this.hraci //prejde kazdym hracom
+            ) {
+                if (i.getZivoty() > 0){ //pozre ci zije
+                    kolkohracov1++;
+                }
+            }
+            if (kolkohracov1 == 1){
+                break;
+            }
             for (Hrac aktivnyhrac: this.hraci //hrame kazdym hracom
                  ) {
                 if(aktivnyhrac.getZivoty()>0){ //iba ten hrac moze hrat ktory ma viac nez 1 kacku
@@ -106,6 +116,15 @@ public class Hra {
                 }
 
             }
+        }
+        int i1 = 0;
+        for (Hrac i:this.hraci //prejde kazdym hracom
+        ) {
+            if (i.getZivoty() > 0){ //pozre ci zije
+                System.out.println("Hrac "+hraci.get(i1)+" Vyhral!!!");
+                break;
+            }
+            i1++;
         }
     }
 }
