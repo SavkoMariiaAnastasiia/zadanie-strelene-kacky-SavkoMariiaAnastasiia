@@ -10,7 +10,7 @@ public class Kacka extends HracieKarty {
     @Override
     public String toString() {
         return "Kacka{" +
-                "hrac=" + hrac +
+                "hrac=" + hrac + +
                 '}';
     }
 

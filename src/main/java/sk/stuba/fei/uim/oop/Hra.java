@@ -12,6 +12,7 @@ public class Hra {
     ArrayList<AkcneKarty> akcnekarty = new ArrayList<AkcneKarty>(); //vsetky akcne
     ArrayList<HracieKarty> hraciekarty = new ArrayList<HracieKarty>(); //vsetky kacky a voda
     ArrayList<HracieKarty> stol = new ArrayList<>(); //iba 6 na stole
+    ArrayList<String> zamierane = new ArrayList<String>();//pre zamierane
 
     public Hra(int pocethracov) {
         this.pocethracov = pocethracov;
@@ -45,6 +46,9 @@ public class Hra {
         for (int i = 0; i < 12; i++) {
             this.akcnekarty.add(new Strel());
         }
+        for (int i = 0; i < 10; i++) {
+            this.akcnekarty.add(new Zamierit());
+        }
         this.akcnekarty.add(new TurboKacka());
         this.akcnekarty.add(new KackaciTanec());
         //--------------------------------
@@ -57,7 +61,6 @@ public class Hra {
             this.stol.add(karta);
 
         }
-
         for (Hrac i :this.hraci) { //da hracom karty
             for (int j = 0; j < 3; j++) {
                 AkcneKarty karta = this.akcnekarty.remove(0);
@@ -76,6 +79,10 @@ public class Hra {
 
 
         }
+    }
+
+    public ArrayList<String> getZamierane() {
+        return zamierane;
     }
 
     public void cyklus(){

@@ -3,6 +3,7 @@ package sk.stuba.fei.uim.oop;
 import java.util.ArrayList;
 
 public class Hrac {
+
     private ArrayList<AkcneKarty> karty = new ArrayList<>();
     private String meno;
     private int zivoty;
