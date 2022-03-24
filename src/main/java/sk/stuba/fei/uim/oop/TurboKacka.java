@@ -14,7 +14,7 @@ public class TurboKacka extends AkcneKarty {
                 vyberkartu = ZKlavesnice.readInt(" ");
             }
         }
-        HracieKarty karta = hra.stol.remove(vyberkartu);
+        HracieKarty karta = hra.stol.remove(vyberkartu-1);
         hra.stol.add(0,karta);
 
     }

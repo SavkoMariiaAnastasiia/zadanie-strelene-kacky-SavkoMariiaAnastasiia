@@ -27,7 +27,7 @@ public class Zamierit extends AkcneKarty {
                 }
             }
         }
-        hra.zamierane.set(vyberkartu,"Zamierane");
+        hra.zamierane.set(vyberkartu-1,"Zamierane");
 
     }
     @Override

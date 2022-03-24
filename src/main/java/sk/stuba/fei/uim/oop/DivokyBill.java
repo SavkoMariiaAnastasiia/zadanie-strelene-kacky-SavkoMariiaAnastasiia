@@ -17,7 +17,7 @@ public class DivokyBill extends AkcneKarty {
                 vyberkartu = ZKlavesnice.readInt(" ");
             }
         }
-        HracieKarty vybranakarta = hra.stol.get(vyberkartu);
+        HracieKarty vybranakarta = hra.stol.get(vyberkartu-1);
         vybranakarta.strel();
         hra.stol.remove(vybranakarta);
         HracieKarty novakarta = hra.hraciekarty.remove(0);

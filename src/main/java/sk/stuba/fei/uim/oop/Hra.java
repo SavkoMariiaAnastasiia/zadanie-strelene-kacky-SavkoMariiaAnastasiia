@@ -96,10 +96,10 @@ public class Hra {
                     this.printStol(); //ukazeme karty na stole
                     aktivnyhrac.printKarty();
                     int vyberkartu = readInt("Ktoru kartu"); //vyberie kartu
-                    if(vyberkartu > 3){
+                    if(vyberkartu > 4){
                         System.out.println("error");
-                    };
-                    AkcneKarty vybrata = aktivnyhrac.vyberKartu(vyberkartu); //zoberieme kartu z ruky
+                    }
+                    AkcneKarty vybrata = aktivnyhrac.vyberKartu(vyberkartu-1); //zoberieme kartu z ruky
                     vybrata.akcia(this); //karta sa aktivuje
                     this.akcnekarty.add(vybrata); //vratime do balika kartu
                     aktivnyhrac.dajKartu(akcnekarty.remove(0)); //dame hracovi novu kartu
