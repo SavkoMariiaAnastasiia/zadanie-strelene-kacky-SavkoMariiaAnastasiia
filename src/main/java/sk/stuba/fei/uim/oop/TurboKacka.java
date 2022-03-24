@@ -16,6 +16,6 @@ public class TurboKacka extends AkcneKarty {
 
     @Override
     public String toString() {
-        return "TurboKacka{}";
+        return "TurboKacka";
     }
 }

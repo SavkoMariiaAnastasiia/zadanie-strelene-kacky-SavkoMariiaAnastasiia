@@ -73,16 +73,12 @@ public class Hra {
 
     public void printStol() {
         System.out.println("--------------------------\nNa stole karty:");
-        for (HracieKarty i :
-                this.stol) {
-            System.out.println(i);
-
-
+        for (int i = 0; i < 6; i++) {
+            this.zamierane.add("Nezamierane");
         }
-    }
-
-    public ArrayList<String> getZamierane() {
-        return zamierane;
+        for (int i=0;i < 6;i++){
+            System.out.println(this.zamierane.get(i)+" "+ this.stol.get(i));
+        }
     }
 
     public void cyklus(){

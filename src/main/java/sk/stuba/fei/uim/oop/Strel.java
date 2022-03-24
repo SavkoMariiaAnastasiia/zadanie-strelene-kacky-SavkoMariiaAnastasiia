@@ -8,12 +8,14 @@ public class Strel extends AkcneKarty {
         int vyberkartu = readInt("Ktoru kartu");
         if(vyberkartu > 6){
             System.out.println("error");
-        };
-        HracieKarty vybranakarta = hra.stol.get(vyberkartu);
-        vybranakarta.strel();
-        hra.stol.remove(vybranakarta);
-        HracieKarty novakarta = hra.hraciekarty.remove(0);
-        hra.stol.add(novakarta);
+        }
+        if(hra.zamierane.get(vyberkartu) =="Zamierane") {
+            HracieKarty vybranakarta = hra.stol.get(vyberkartu);
+            vybranakarta.strel();
+            hra.stol.remove(vybranakarta);
+            HracieKarty novakarta = hra.hraciekarty.remove(0);
+            hra.stol.add(novakarta);
+        }
 
     }
 

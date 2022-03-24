@@ -19,10 +19,8 @@ public class Hrac {
 
     @Override
     public String toString() {
-        return "Hrac{" +
-                ", meno='" + meno + '\'' +
-                ", zivoty=" + zivoty +
-                '}';
+        return "hraca" +
+                " " + meno;
     }
 
     public void strel() {
@@ -42,7 +40,7 @@ public class Hrac {
     }
 
     public void printKarty() {
-        System.out.println("--------------------\n" + this.meno + " karty:");
+        System.out.println("--------------------\n"+"Hrac '" + this.meno +"' ma "+zivoty+" kacicek a tieto karty:");
         for (AkcneKarty karta:this.karty
              ) {
             System.out.println(karta);
