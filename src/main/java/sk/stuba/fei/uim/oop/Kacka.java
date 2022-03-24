@@ -9,8 +9,8 @@ public class Kacka extends HracieKarty {
 
     @Override
     public String toString() {
-        return "Kacka" +
-                " " + hrac;
+        return "Kacka hraca " +
+                " \u001B[33m" + hrac+"\u001B[32m";
     }
 
     @Override

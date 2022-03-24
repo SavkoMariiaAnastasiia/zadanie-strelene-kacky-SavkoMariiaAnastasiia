@@ -11,9 +11,9 @@ public class Voda extends HracieKarty {
 
     @Override
     public void strel() {
-        System.out.println("strelil si vodu");
+        System.out.println("\u001B[1mstrelil si u vodu\u001B[2m");
     }
     public void divokybill() {
-        System.out.println("strelil si vodu");
+        System.out.println("\u001B[1mstrelil si u vodu\u001B[2m");
     }
 }

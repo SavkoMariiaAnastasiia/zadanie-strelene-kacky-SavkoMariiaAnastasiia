@@ -15,12 +15,11 @@ public class Hrac {
 
     public int getZivoty() {
         return this.zivoty;
-    }
+    }//-------------need-urobit-pre pripad ak hracov >6 a turbokacka neni na vodu_______________ada pre cvet
 
     @Override
     public String toString() {
-        return "hraca" +
-                " " + meno;
+        return " " + meno;
     }
 
     public void strel() {
@@ -40,12 +39,13 @@ public class Hrac {
     }
 
     public void printKarty() {
-        System.out.println("--------------------\n"+"Hrac '" + this.meno +"' ma "+zivoty+" kacicek a tieto karty:");
+        System.out.println("\u001B[33m///////////////////////////////\u001B[32m" +
+                "\n"+"Hrac '" + this.meno +"' ma "+zivoty+" kacicek a tieto karty:");
         int i = 0;
         for (AkcneKarty karta:this.karty
              ) {
             i++;
-            System.out.println(i+". "+karta);
+            System.out.println("\u001B[33m"+i+". \u001B[32m"+karta);
 
         }
     }

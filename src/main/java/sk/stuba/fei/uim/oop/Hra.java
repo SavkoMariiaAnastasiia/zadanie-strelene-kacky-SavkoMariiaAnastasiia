@@ -7,6 +7,7 @@ import static sk.stuba.fei.uim.oop.utility.KeyboardInput.readInt;
 import static sk.stuba.fei.uim.oop.utility.KeyboardInput.readString;
 
 public class Hra {
+    public static final String ANSI_GREEN = "\u001B[32m";
     private int pocethracov;
     ArrayList<Hrac> hraci = new ArrayList<>();
     ArrayList<AkcneKarty> akcnekarty = new ArrayList<AkcneKarty>(); //vsetky akcne
@@ -18,7 +19,7 @@ public class Hra {
         this.pocethracov = pocethracov;
 
         for (int i = 0; i < this.pocethracov; i++) { //pridavam hracov do hry
-            this.hraci.add(new Hrac(readString("Zadaj meno")));
+            this.hraci.add(new Hrac(readString("\u001B[1mZadaj meno\u001B[2m")));
 
         }
 
@@ -72,12 +73,12 @@ public class Hra {
 
 
     public void printStol() {
-        System.out.println("--------------------------\nNa stole karty:");
+        System.out.println("\u001B[33m///////////////////////////////\u001B[32m\n\u001B[1mNa stole karty:\u001B[2m");
         for (int i = 0; i < 6; i++) {
             this.zamierane.add("Nezamierane");
         }
         for (int i=0;i < 6;i++){
-            System.out.println(i+1+". "+this.zamierane.get(i)+" "+ this.stol.get(i));
+            System.out.println("\u001B[33m"+(i+1)+". \u001B[32m"+this.zamierane.get(i)+" "+ this.stol.get(i));
         }
     }
 
@@ -105,7 +106,7 @@ public class Hra {
                 if(aktivnyhrac.getZivoty()>0){ //iba ten hrac moze hrat ktory ma viac nez 1 kacku
                     this.printStol(); //ukazeme karty na stole
                     aktivnyhrac.printKarty();
-                    int vyberkartu = readInt("Ktoru kartu"); //vyberie kartu
+                    int vyberkartu = readInt("\u001B[1mKtoru kartu\u001B[2m"); //vyberie kartu
                     if(vyberkartu > 4){
                         System.out.println("error");
                     }
@@ -121,7 +122,7 @@ public class Hra {
         for (Hrac i:this.hraci //prejde kazdym hracom
         ) {
             if (i.getZivoty() > 0){ //pozre ci zije
-                System.out.println("Hrac "+hraci.get(i1)+" Vyhral!!!");
+                System.out.println("\u001B[33mHrac "+hraci.get(i1)+" Vyhral!!!");
                 break;
             }
             i1++;
