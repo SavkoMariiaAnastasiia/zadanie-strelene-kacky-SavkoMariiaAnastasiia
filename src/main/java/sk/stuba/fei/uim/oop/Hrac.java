@@ -17,7 +17,7 @@ public class Hrac {
 
     public int getZivoty() {
         return this.zivoty;
-    }//-------------need-urobit-pre pripad ak hracov >6 a turbokacka neni na vodu_______________ada pre cvet
+    }
 
     @Override
     public String toString() {
