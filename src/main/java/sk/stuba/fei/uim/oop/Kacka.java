@@ -1,6 +1,8 @@
 package sk.stuba.fei.uim.oop;
 
 public class Kacka extends HracieKarty {
+    public static final String	GREEN	= "\u001B[32m";
+    public static final String	YELLOW	= "\u001B[33m";
     private final Hrac hrac;
 
     public Kacka(Hrac i) {
@@ -10,7 +12,7 @@ public class Kacka extends HracieKarty {
     @Override
     public String toString() {
         return "Kacka hraca " +
-                " \u001B[33m" + hrac+"\u001B[32m";
+                YELLOW + hrac + GREEN;
     }
 
     @Override

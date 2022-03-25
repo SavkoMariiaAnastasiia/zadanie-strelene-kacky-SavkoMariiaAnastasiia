@@ -3,6 +3,8 @@ package sk.stuba.fei.uim.oop;
 import java.util.ArrayList;
 
 public class Hrac {
+    public static final String	GREEN	= "\u001B[32m";
+    public static final String	YELLOW	= "\u001B[33m";
 
     private ArrayList<AkcneKarty> karty = new ArrayList<>();
     private String meno;
@@ -39,13 +41,13 @@ public class Hrac {
     }
 
     public void printKarty() {
-        System.out.println("\u001B[33m///////////////////////////////\u001B[32m" +
-                "\n"+"Hrac '" + this.meno +"' ma "+zivoty+" kacicek a tieto karty:");
+        System.out.println(YELLOW+"///////////////////////////////"+GREEN +
+                "\n"+"Hrac " +YELLOW+ this.meno +GREEN+" ma "+YELLOW+zivoty+GREEN+" kacicek a tieto karty:");
         int i = 0;
         for (AkcneKarty karta:this.karty
              ) {
             i++;
-            System.out.println("\u001B[33m"+i+". \u001B[32m"+karta);
+            System.out.println(YELLOW+i+". "+GREEN+karta);
 
         }
     }
