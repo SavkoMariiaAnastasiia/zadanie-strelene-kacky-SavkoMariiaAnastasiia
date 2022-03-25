@@ -115,7 +115,6 @@ public class Hra {
                     this.akcnekarty.add(vybrata); //vratime do balika kartu
                     aktivnyhrac.dajKartu(akcnekarty.remove(0)); //dame hracovi novu kartu
                 }
-
             }
         }
         int i1 = 0;
