@@ -10,7 +10,7 @@ public class Strel extends AkcneKarty {
     private int proverka = 0;
     @Override
     public void akcia(Hra hra) {
-        int vyberkartu = readInt("Napiste na ake pole strelat kde je zamierane od 1-6:");
+        int vyberkartu = readInt("Napiste na ake pole strelat kde je zamierane od 1-6");
         for (int i = 0; i < 6; i++) {
             if(hra.zamierane.get(i) == YELLOW+"Zamierane"+GREEN){
                 proverka++;
